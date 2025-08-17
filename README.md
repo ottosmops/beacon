@@ -1,6 +1,6 @@
 [![CI](https://github.com/ottosmops/beacon/actions/workflows/ci.yml/badge.svg)](https://github.com/ottosmops/beacon/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/ottosmops/beacon/branch/main/graph/badge.svg)](https://codecov.io/gh/ottosmops/beacon)
-[![Total Downloads](https://poser.pugx.org/ottosmops/beacon/downloads)](https://packagist.org/packages/ottosmops/beacon)
+[![Total Downloads](https://img.shields.io/packagist/dt/ottosmops/beacon)](https://packagist.org/packages/ottosmops/beacon)
 [![License](https://poser.pugx.org/ottosmops/beacon/license)](https://packagist.org/packages/ottosmops/beacon)
 [![Latest Stable Version](https://img.shields.io/packagist/v/ottosmops/beacon)](https://packagist.org/packages/ottosmops/beacon)
 [![PHP Version Require](https://img.shields.io/packagist/php-v/ottosmops/beacon)](https://packagist.org/packages/ottosmops/beacon)
