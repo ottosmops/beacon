@@ -5,6 +5,7 @@
 [![License](https://poser.pugx.org/ottosmops/beacon/license)](https://packagist.org/packages/ottosmops/beacon)
 [![PHP Version Require](https://poser.pugx.org/ottosmops/beacon/require/php)](https://packagist.org/packages/ottosmops/beacon)
 
+
 # BEACON Parser
 
 A PHP library for parsing BEACON files. 
@@ -144,7 +145,7 @@ The library includes a validator to check BEACON files.
 ### Using the Validator
 
 ```php
-use BeaconParser\BeaconValidator;
+use BeaconParser\BeaconParser;
 
 $validator = new BeaconValidator();
 
@@ -255,7 +256,7 @@ diana||http://example.net/external-doc
 ### Parsing Example
 
 ```php
-use BeaconParser\BeaconParser;
+use BeaconParser\BeaconValidator;
 
 $parser = new BeaconParser();
 $beaconData = $parser->parseFile('example.beacon');

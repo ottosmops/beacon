@@ -1,0 +1,10 @@
+#FORMAT: BEACON
+#PREFIX: http://example.org/id/
+#TARGET: http://example.com/person/{ID}
+#DESCRIPTION: Test BEACON file for URL validation
+#CREATOR: BEACON Parser Test
+#TIMESTAMP: 2025-08-11
+
+alice|alice|Alice in Wonderland
+bob|bob|Bob the Builder
+charlie|charlie|Charlie Chaplin
