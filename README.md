@@ -1,11 +1,11 @@
-# BEACON Parser
-
 [![CI](https://github.com/kraenzle-ritter/beacon/actions/workflows/ci.yml/badge.svg)](https://github.com/kraenzle-ritter/beacon/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/kraenzle-ritter/beacon/branch/main/graph/badge.svg)](https://codecov.io/gh/kraenzle-ritter/beacon)
 [![Latest Stable Version](https://poser.pugx.org/ottosmops/beacon/v)](https://packagist.org/packages/ottosmops/beacon)
 [![Total Downloads](https://poser.pugx.org/ottosmops/beacon/downloads)](https://packagist.org/packages/ottosmops/beacon)
 [![License](https://poser.pugx.org/ottosmops/beacon/license)](https://packagist.org/packages/ottosmops/beacon)
 [![PHP Version Require](https://poser.pugx.org/ottosmops/beacon/require/php)](https://packagist.org/packages/ottosmops/beacon)
+
+# BEACON Parser
 
 A PHP library for parsing BEACON files. 
 
