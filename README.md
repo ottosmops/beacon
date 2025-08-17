@@ -1,5 +1,5 @@
-[![CI](https://github.com/kraenzle-ritter/beacon/actions/workflows/ci.yml/badge.svg)](https://github.com/kraenzle-ritter/beacon/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/kraenzle-ritter/beacon/branch/main/graph/badge.svg)](https://codecov.io/gh/kraenzle-ritter/beacon)
+[![CI](https://github.com/ottosmops/beacon/actions/workflows/ci.yml/badge.svg)](https://github.com/ottosmops/beacon/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/ottosmops/beacon/branch/main/graph/badge.svg)](https://codecov.io/gh/ottosmops/beacon)
 [![Latest Stable Version](https://poser.pugx.org/ottosmops/beacon/v)](https://packagist.org/packages/ottosmops/beacon)
 [![Total Downloads](https://poser.pugx.org/ottosmops/beacon/downloads)](https://packagist.org/packages/ottosmops/beacon)
 [![License](https://poser.pugx.org/ottosmops/beacon/license)](https://packagist.org/packages/ottosmops/beacon)
@@ -346,3 +346,4 @@ MIT License. See [LICENSE](LICENSE) file for details.
 ## Links
 
 - [BEACON Specification](https://gbv.github.io/beaconspec/beacon.html)
+- [Wikipedia:BEACON](https://de.wikipedia.org/wiki/Wikipedia:BEACON)
