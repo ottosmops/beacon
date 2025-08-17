@@ -1,0 +1,84 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.3
+        extensions: mbstring, xml, ctype, iconv, intl
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-dev --optimize-autoloader
+
+    - name: Run tests
+      run: composer test
+
+    - name: Run static analysis
+      run: composer phpstan
+
+    - name: Create release archive
+      run: |
+        mkdir -p build
+        rsync -av --exclude='tests/' --exclude='.git*' --exclude='build/' --exclude='*.log' . build/beacon-parser/
+        cd build
+        tar -czf beacon-parser-${GITHUB_REF#refs/tags/}.tar.gz beacon-parser/
+        zip -r beacon-parser-${GITHUB_REF#refs/tags/}.zip beacon-parser/
+
+    - name: Generate changelog
+      id: changelog
+      run: |
+        if [ -f CHANGELOG.md ]; then
+          echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+          cat CHANGELOG.md >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+        else
+          echo "CHANGELOG=No changelog available." >> $GITHUB_OUTPUT
+        fi
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        body: |
+          ## BEACON Parser ${{ github.ref_name }}
+          
+          A PHP library for parsing BEACON (Bookmark Exchange and Aggregation Notice) files.
+          
+          ### Features
+          - Complete BEACON file parsing according to specification
+          - Comprehensive validation system with errors, warnings, and info
+          - CLI tool for validating local files and URLs
+          - Case-insensitive meta field parsing with spec compliance warnings
+          - Extensive test coverage and PHPStan Level Max compliance
+          
+          ### Installation
+          ```bash
+          composer require kraenzle-ritter/beacon-parser
+          ```
+          
+          ### CLI Usage
+          ```bash
+          # Validate local file
+          php vendor/bin/validate-beacon.php file.beacon
+          
+          # Validate remote file
+          php vendor/bin/validate-beacon.php https://example.org/beacon.txt
+          ```
+          
+          ${{ steps.changelog.outputs.CHANGELOG }}
+        files: |
+          build/beacon-parser-*.tar.gz
+          build/beacon-parser-*.zip
+        draft: false
+        prerelease: false

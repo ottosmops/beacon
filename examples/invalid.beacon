@@ -1,0 +1,10 @@
+#FORMAT: BEACON
+#PREFIX: http://example.org/people/
+#TARGET: not-a-valid-uri
+#TIMESTAMP: invalid-date
+#UPDATE: never
+#UNKNOWN: some value
+
+alice
+bob|author
+alice  # duplicate link

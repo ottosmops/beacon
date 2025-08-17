@@ -1,0 +1,15 @@
+#FORMAT: BEACON
+#PREFIX: http://example.org/people/
+#TARGET: http://example.com/documents/
+#DESCRIPTION: Example BEACON file mapping people to documents
+#CREATOR: Example Organization
+#CONTACT: admin@example.org
+#HOMEPAGE: http://example.org/about
+#RELATION: http://purl.org/dc/elements/1.1/contributor
+#MESSAGE: contributed to
+
+alice
+bob|author
+charlie|editor|special-doc
+diana||http://example.net/external-doc
+eve|reviewer|document-123

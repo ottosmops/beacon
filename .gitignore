@@ -1,0 +1,30 @@
+# Ignore vendor directory
+/vendor/
+
+/info/
+
+# Ignore Composer lock file in libraries
+composer.lock
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build/log directories
+/build/
+/logs/
+
+# PHPUnit cache
+.phpunit.result.cache
+
+# Coverage reports
+/coverage/
+
+# Temporary files
+*.tmp
+*.temp

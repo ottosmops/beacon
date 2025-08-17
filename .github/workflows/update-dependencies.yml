@@ -1,0 +1,62 @@
+name: Update Dependencies
+
+on:
+  schedule:
+    # Run every Monday at 9:00 AM UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.3
+        extensions: mbstring, xml, ctype, iconv, intl
+
+    - name: Update Composer dependencies
+      run: |
+        composer update --prefer-dist --no-progress
+        composer audit
+
+    - name: Run tests
+      run: composer test
+
+    - name: Run static analysis
+      run: composer phpstan
+
+    - name: Check for changes
+      id: changes
+      run: |
+        if [[ -n $(git diff --name-only) ]]; then
+          echo "changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "changes=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Create Pull Request
+      if: steps.changes.outputs.changes == 'true'
+      uses: peter-evans/create-pull-request@v6
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'chore: update dependencies'
+        title: 'chore: update dependencies'
+        body: |
+          ## Automated Dependency Update
+          
+          This PR updates the project dependencies to their latest versions.
+          
+          ### Changes
+          - Updated Composer dependencies
+          - All tests passing
+          - Static analysis checks passed
+          
+          Please review the changes and merge if everything looks good.
+        branch: update-dependencies
+        delete-branch: true
